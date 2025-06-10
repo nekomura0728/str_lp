@@ -1,6 +1,72 @@
-// 診断開始
-function startDiagnosis() {
+// 新規ユーザー向け診断開始
+function startNewUserDiagnosis() {
+    userType = 'first-time'; // 事前にユーザータイプを設定
     document.getElementById('diagnosisModal').style.display = 'block';
+}
+
+// 既存ユーザー向けフロー開始
+function startExistingUserFlow() {
+    document.getElementById('diagnosisModal').style.display = 'block';
+    showExistingUserStart();
+}
+
+// 既存ユーザー向けスタート画面
+function showExistingUserStart() {
+    const content = document.getElementById('diagnosisContent');
+    content.innerHTML = `
+        <div class="existing-user-start">
+            <div class="welcome-back">
+                <h4>🎯 おかえりなさい！</h4>
+                <p>パーソナルストレッチ体験後の継続サポートをご用意しています</p>
+            </div>
+            
+            <div class="user-status-selection">
+                <h6>現在の状況を教えてください</h6>
+                <div class="status-options">
+                    <button class="status-btn" onclick="setExistingUserType('experienced')">
+                        <div class="status-icon">✨</div>
+                        <div class="status-content">
+                            <h7>一度体験しました</h7>
+                            <p>効果を持続させたい</p>
+                        </div>
+                    </button>
+                    
+                    <button class="status-btn" onclick="setExistingUserType('regular')">
+                        <div class="status-icon">⭐</div>
+                        <div class="status-content">
+                            <h7>定期的に通っています</h7>
+                            <p>更なる向上を目指したい</p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="quick-access">
+                <h6>🚀 今すぐできること</h6>
+                <div class="quick-options">
+                    <button class="quick-btn" onclick="startSelfCareForExperienced()">
+                        <span class="quick-icon">🏠</span>
+                        効果持続セルフケア
+                    </button>
+                    <button class="quick-btn" onclick="showNextVisitSchedule()">
+                        <span class="quick-icon">📅</span>
+                        最適な来店タイミング
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// 既存ユーザーのタイプ設定
+function setExistingUserType(type) {
+    userType = type;
+    showSymptomQuestion(); // 症状質問から開始
+}
+
+// 診断開始（レガシー関数、互換性のため残す）
+function startDiagnosis() {
+    startNewUserDiagnosis();
 }
 
 // 診断終了
@@ -11,21 +77,27 @@ function closeDiagnosis() {
 // ユーザータイプ判定用のグローバル変数
 let userType = '';
 
-// 質問開始 - まずはユーザータイプを判定
+// 質問開始 - 新規ユーザーは直接症状質問へ
 function startQuestions() {
-    const content = document.getElementById('diagnosisContent');
-    content.innerHTML = `
-        <div class="question-container">
-            <h4>質問 1/6</h4>
-            <p class="question-text">パーソナルストレッチの経験について教えてください</p>
-            <div class="question-options">
-                <button class="option-btn" onclick="setUserType('first-time')">初めて・まだ体験したことがない</button>
-                <button class="option-btn" onclick="setUserType('experienced')">一度体験したことがある</button>
-                <button class="option-btn" onclick="setUserType('regular')">定期的に通っている</button>
+    if (userType === 'first-time') {
+        // 新規ユーザーは症状質問から開始
+        showSymptomQuestion();
+    } else {
+        // その他は従来通り
+        const content = document.getElementById('diagnosisContent');
+        content.innerHTML = `
+            <div class="question-container">
+                <h4>質問 1/5</h4>
+                <p class="question-text">パーソナルストレッチの経験について教えてください</p>
+                <div class="question-options">
+                    <button class="option-btn" onclick="setUserType('first-time')">初めて・まだ体験したことがない</button>
+                    <button class="option-btn" onclick="setUserType('experienced')">一度体験したことがある</button>
+                    <button class="option-btn" onclick="setUserType('regular')">定期的に通っている</button>
+                </div>
             </div>
-        </div>
-    `;
-    updateProgress(16);
+        `;
+        updateProgress(20);
+    }
 }
 
 // ユーザータイプ設定と次の質問へ
@@ -37,9 +109,12 @@ function setUserType(type) {
 // 症状に関する質問
 function showSymptomQuestion() {
     const content = document.getElementById('diagnosisContent');
+    const questionNumber = userType === 'first-time' ? '1/5' : '2/5';
+    const progressValue = userType === 'first-time' ? 20 : 40;
+    
     content.innerHTML = `
         <div class="question-container">
-            <h4>質問 2/6</h4>
+            <h4>質問 ${questionNumber}</h4>
             <p class="question-text">今一番気になる体の症状はどちらですか？</p>
             <div class="question-options">
                 <button class="option-btn" onclick="selectOption('肩こり・首の痛み')">肩こり・首の痛み</button>
@@ -50,7 +125,7 @@ function showSymptomQuestion() {
             </div>
         </div>
     `;
-    updateProgress(32);
+    updateProgress(progressValue);
 }
 
 // オプション選択
@@ -598,6 +673,209 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // 追加のCSS（動的スタイル）
 const additionalStyles = `
+/* ヒーローセクション - デュアルCTA */
+.hero-cta-dual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.cta-group {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+}
+
+.cta-group:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.cta-group.new-user {
+    border-color: rgba(255, 107, 107, 0.3);
+}
+
+.cta-group.existing-user {
+    border-color: rgba(32, 201, 151, 0.3);
+}
+
+.cta-group-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #ffd700;
+}
+
+.cta-group-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+.cta-group .cta-button {
+    width: 100%;
+    justify-content: center;
+}
+
+.cta-group .cta-note {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* CTAセクション - デュアルボタン */
+.cta-bottom-dual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cta-bottom-dual .cta-button {
+    justify-content: center;
+}
+
+/* 既存ユーザー向けスタート画面 */
+.existing-user-start {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.welcome-back {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.user-status-selection {
+    margin: 2rem 0;
+}
+
+.status-options {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.status-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    text-align: left;
+}
+
+.status-btn:hover {
+    border-color: #28a745;
+    background: #f8fff8;
+    transform: translateY(-2px);
+}
+
+.status-icon {
+    font-size: 2rem;
+    min-width: 60px;
+}
+
+.status-content h7 {
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.status-content p {
+    color: #6c757d;
+    margin: 0;
+}
+
+.quick-access {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+.quick-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.quick-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.quick-btn:hover {
+    border-color: #28a745;
+    background: #f8fff8;
+}
+
+.quick-icon {
+    font-size: 1.5rem;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 968px) {
+    .hero-cta-dual {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .cta-bottom-dual {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .cta-group {
+        padding: 1.5rem;
+    }
+    
+    .cta-group-title {
+        font-size: 1.1rem;
+    }
+    
+    .cta-group-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .quick-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .status-btn {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+}
+
 /* ユーザータイプ別スタイル */
 .result-type.experienced {
     background: linear-gradient(45deg, #28a745, #20c997);

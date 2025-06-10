@@ -14,20 +14,34 @@
             <div class="hero-content">
                 <h1 class="hero-title">
                     体の不調、<br>
-                    <span class="highlight">まずは3分から</span><br>
-                    プロのサポートもいつでも安心
+                    <span class="highlight">一人ひとりに最適な解決策を</span><br>
+                    初めての方も、ご利用中の方も
                 </h1>
                 <p class="hero-subtitle">
                     「肩こり」「腰痛」「疲れやすい」...<br>
-                    ストレッチがいいの？整体がいいの？<br>
-                    そんな悩みを、AIが3分で解決します
+                    あなたの状況に合わせた<br>
+                    最適なケア方法をご提案します
                 </p>
-                <div class="hero-cta">
-                    <button class="cta-button primary" onclick="startDiagnosis()">
-                        <span class="cta-icon">🤖</span>
-                        無料AI診断を始める（3分）
-                    </button>
-                    <p class="cta-note">※登録不要・完全無料</p>
+                <div class="hero-cta-dual">
+                    <div class="cta-group new-user">
+                        <h3 class="cta-group-title">🌟 初めての方</h3>
+                        <p class="cta-group-subtitle">ストレッチと整体、どちらがいい？<br>AIが3分で最適解をご提案</p>
+                        <button class="cta-button primary" onclick="startNewUserDiagnosis()">
+                            <span class="cta-icon">🤖</span>
+                            無料AI診断を始める
+                        </button>
+                        <p class="cta-note">※登録不要・完全無料</p>
+                    </div>
+                    
+                    <div class="cta-group existing-user">
+                        <h3 class="cta-group-title">🎯 ご利用中の方</h3>
+                        <p class="cta-group-subtitle">効果を持続させたい、更に向上したい<br>継続サポートをご用意</p>
+                        <button class="cta-button secondary" onclick="startExistingUserFlow()">
+                            <span class="cta-icon">⚡</span>
+                            継続サポートを受ける
+                        </button>
+                        <p class="cta-note">※体験済みの方専用</p>
+                    </div>
                 </div>
             </div>
             <div class="hero-visual">
@@ -291,10 +305,16 @@
                         <span>プロサポート付き</span>
                     </div>
                 </div>
-                <button class="cta-button primary large" onclick="startDiagnosis()">
-                    <span class="cta-icon">🤖</span>
-                    今すぐ無料AI診断を始める
-                </button>
+                <div class="cta-bottom-dual">
+                    <button class="cta-button primary large" onclick="startNewUserDiagnosis()">
+                        <span class="cta-icon">🤖</span>
+                        初めての方：無料AI診断
+                    </button>
+                    <button class="cta-button secondary large" onclick="startExistingUserFlow()">
+                        <span class="cta-icon">⚡</span>
+                        ご利用中の方：継続サポート
+                    </button>
+                </div>
                 <p class="cta-note">※3分で完了・完全無料・いつでも中断OK</p>
             </div>
         </div>
