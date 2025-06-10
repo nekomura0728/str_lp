@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カラダケア - まずは自分から、必要な時はプロと一緒に</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ヘロセクション -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    体の不調、<br>
+                    <span class="highlight">まずは3分から</span><br>
+                    プロのサポートもいつでも安心
+                </h1>
+                <p class="hero-subtitle">
+                    「肩こり」「腰痛」「疲れやすい」...<br>
+                    ストレッチがいいの？整体がいいの？<br>
+                    そんな悩みを、AIが3分で解決します
+                </p>
+                <div class="hero-cta">
+                    <button class="cta-button primary" onclick="startDiagnosis()">
+                        <span class="cta-icon">🤖</span>
+                        無料AI診断を始める（3分）
+                    </button>
+                    <p class="cta-note">※登録不要・完全無料</p>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="phone-mockup">
+                    <div class="phone-content">
+                        <div class="diagnosis-preview">
+                            <h4>簡単3ステップ</h4>
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <span>症状を選択</span>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <span>生活習慣を入力</span>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <span>最適解を提案</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 問題提起セクション -->
+    <section class="problem">
+        <div class="container">
+            <h2 class="section-title">こんな悩み、ありませんか？</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">😰</div>
+                    <h3>何から始めればいいかわからない</h3>
+                    <p>ストレッチ？マッサージ？整体？医者？選択肢が多すぎて迷ってしまう</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">💸</div>
+                    <h3>いきなり高額な治療は不安</h3>
+                    <p>効果があるかわからないのに、最初から高いお金を払うのは心配</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">⏰</div>
+                    <h3>忙しくて通う時間がない</h3>
+                    <p>症状はあるけれど、わざわざ予約を取って通うほどでもない気がする</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">😔</div>
+                    <h3>続かない・やり方がわからない</h3>
+                    <p>YouTubeを見ても、自分に合っているのかわからない</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ソリューションセクション -->
+    <section class="solution">
+        <div class="container">
+            <div class="solution-header">
+                <h2 class="section-title">「カラダケア」なら、<br>すべて解決できます</h2>
+                <p class="solution-subtitle">まずは自分でできることから。プロのサポートはいつでも安心。</p>
+            </div>
+
+            <div class="solution-flow">
+                <div class="flow-step">
+                    <div class="flow-number">Step 1</div>
+                    <div class="flow-content">
+                        <h3>3分AI診断</h3>
+                        <p>症状や生活習慣を簡単入力。AIがあなたに最適なケア方法を瞬時に判定</p>
+                        <div class="flow-visual">
+                            <div class="diagnosis-sample">
+                                <div class="question">Q. 一番気になる症状は？</div>
+                                <div class="options">
+                                    <span class="option selected">肩こり</span>
+                                    <span class="option">腰痛</span>
+                                    <span class="option">疲労感</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    <div class="flow-number">Step 2</div>
+                    <div class="flow-content">
+                        <h3>まずはセルフケア</h3>
+                        <p>あなた専用の3分ストレッチ動画をお届け。無理なく続けられるから安心</p>
+                        <div class="flow-visual">
+                            <div class="video-sample">
+                                <div class="video-thumbnail">
+                                    <div class="play-button">▶</div>
+                                </div>
+                                <p>「デスクワーク肩こり型」専用<br>3分肩甲骨ストレッチ</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    <div class="flow-number">Step 3</div>
+                    <div class="flow-content">
+                        <h3>効果を確認</h3>
+                        <p>1週間後に効果をチェック。改善したら次のレベル、しなければ別のアプローチを提案</p>
+                        <div class="flow-visual">
+                            <div class="check-sample">
+                                <div class="survey">調子はいかがですか？</div>
+                                <div class="result">改善実感: 78%の方が効果を実感！</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step highlight-step">
+                    <div class="flow-number">Step 4</div>
+                    <div class="flow-content">
+                        <h3>必要な時はプロと一緒に</h3>
+                        <p>セルフケアで物足りない時、わからないことがある時は、ストレッチ専門店のプロに無料相談</p>
+                        <div class="flow-visual">
+                            <div class="pro-support">
+                                <div class="support-options">
+                                    <div class="support-option">
+                                        <span class="support-icon">💬</span>
+                                        <span>チャット相談</span>
+                                    </div>
+                                    <div class="support-option">
+                                        <span class="support-icon">📹</span>
+                                        <span>オンライン相談</span>
+                                    </div>
+                                    <div class="support-option">
+                                        <span class="support-icon">🏢</span>
+                                        <span>来店サポート</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特徴セクション -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">なぜ「カラダケア」が選ばれるのか</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🆓</div>
+                    <h3>完全無料で始められる</h3>
+                    <p>AI診断からセルフケア動画、プロへの相談まで、すべて無料。お金の心配なし</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>たった3分で答えが出る</h3>
+                    <p>忙しいあなたでも、スマホで3分。すぐに最適なケア方法がわかります</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>あなた専用にカスタマイズ</h3>
+                    <p>症状・生活習慣・体質に合わせて、10,000パターンから最適解を選択</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍⚕️</div>
+                    <h3>プロのサポートで安心</h3>
+                    <p>わからない時は、業界No.1のストレッチ専門店がいつでもサポート</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>効果を数値で実感</h3>
+                    <p>改善度をグラフで可視化。効果が見えるから続けられる</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>いつでもやめられる</h3>
+                    <p>無理な勧誘は一切なし。あなたのペースで、あなたの判断で</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 体験談セクション -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">利用者の声</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">👩‍💻</div>
+                    <div class="testimonial-info">
+                        <p class="testimonial-name">田中さん（32歳・事務職）</p>
+                        <p class="testimonial-symptom">症状：デスクワーク肩こり</p>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>「最初は半信半疑でしたが、3分の診断で『肩甲骨ストレッチがおすすめ』と出て、実際にやってみたら1週間で楽になりました。無理に来店を勧められることもなく、安心でした。」</p>
+                    </div>
+                    <div class="testimonial-result">
+                        <span class="result-badge">改善実感: 85%</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">👨‍🏭</div>
+                    <div class="testimonial-info">
+                        <p class="testimonial-name">佐藤さん（45歳・製造業）</p>
+                        <p class="testimonial-symptom">症状：腰痛・疲労感</p>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>「2週間セルフケアを続けても改善しなかったので、オンライン相談を利用。プロの方に『これは専門的なケアが必要』と言われ、安心して来店できました。」</p>
+                    </div>
+                    <div class="testimonial-result">
+                        <span class="result-badge">来店後: 満足度95%</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">👩‍🎓</div>
+                    <div class="testimonial-info">
+                        <p class="testimonial-name">鈴木さん（28歳・研究職）</p>
+                        <p class="testimonial-symptom">症状：姿勢の悪さ・首の痛み</p>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>「ストレッチと整体、どちらがいいかずっと迷っていました。診断で『まずはストレッチから』と出て、実際に効果があったので、自分の判断が正しかったと確信できました。」</p>
+                    </div>
+                    <div class="testimonial-result">
+                        <span class="result-badge">3ヶ月継続中</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>体の不調、もう一人で悩まないで</h2>
+                <p>
+                    まずは3分、試してみませんか？<br>
+                    あなたに最適なケア方法が、きっと見つかります。
+                </p>
+                <div class="cta-benefits">
+                    <div class="benefit">
+                        <span class="benefit-icon">✅</span>
+                        <span>完全無料</span>
+                    </div>
+                    <div class="benefit">
+                        <span class="benefit-icon">✅</span>
+                        <span>登録不要</span>
+                    </div>
+                    <div class="benefit">
+                        <span class="benefit-icon">✅</span>
+                        <span>3分で完了</span>
+                    </div>
+                    <div class="benefit">
+                        <span class="benefit-icon">✅</span>
+                        <span>プロサポート付き</span>
+                    </div>
+                </div>
+                <button class="cta-button primary large" onclick="startDiagnosis()">
+                    <span class="cta-icon">🤖</span>
+                    今すぐ無料AI診断を始める
+                </button>
+                <p class="cta-note">※3分で完了・完全無料・いつでも中断OK</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ セクション -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">よくある質問</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>本当に無料ですか？後から料金は発生しませんか？</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>AI診断、セルフケア動画、プロへの相談（15分）まで、すべて完全無料です。ストレッチ専門店への来店をご希望される場合のみ、通常の施術料金が発生します。無理な勧誘は一切ありません。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>AIの診断は本当に正確ですか？</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>ストレッチ専門店の10,000人以上の顧客データを学習したAIが診断します。約80%の精度で最適なケア方法を提案できます。万が一合わない場合は、プロによる無料相談で調整いたします。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>セルフケアで効果がなかった場合はどうなりますか？</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>2週間続けても改善実感がない場合、別のアプローチを提案するか、プロによる無料相談をご案内します。お一人お一人の体は異なるため、最適解を見つけるまでサポートいたします。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>個人情報の取り扱いは大丈夫ですか？</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>ご入力いただく情報は症状と生活習慣のみで、お名前やご連絡先は不要です。診断結果の改善にのみ使用し、第三者への提供は一切いたしません。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>カラダケア</h3>
+                    <p>まずは自分から、必要な時はプロと一緒に</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>サービス</h4>
+                        <ul>
+                            <li><a href="#diagnosis">AI診断</a></li>
+                            <li><a href="#selfcare">セルフケア</a></li>
+                            <li><a href="#support">プロサポート</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>ストレッチ専門店</h4>
+                        <ul>
+                            <li><a href="#official">公式サイト</a></li>
+                            <li><a href="#stores">店舗検索</a></li>
+                            <li><a href="#about">会社概要</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 カラダケア by ストレッチ専門店. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 診断モーダル -->
+    <div id="diagnosisModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>3分AI診断</h3>
+                <span class="close" onclick="closeDiagnosis()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <div id="diagnosisContent">
+                    <h4>準備完了！</h4>
+                    <p>これから3分で、あなたに最適なケア方法を見つけましょう。</p>
+                    <button class="cta-button primary" onclick="startQuestions()">診断をスタート</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
