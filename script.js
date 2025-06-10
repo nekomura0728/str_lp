@@ -187,9 +187,9 @@ function startSelfCare() {
             </div>
             
             <div class="support-info">
-                <h6>💬 プロサポートも利用可能</h6>
-                <p>1週間続けても改善しない場合は、ストレッチ専門店の専門家に無料相談できます</p>
-                <button class="cta-button secondary" onclick="showSupport()">プロサポートについて</button>
+                <h6>🧘‍♀️ トレーナーとパーソナルストレッチも利用可能</h6>
+                <p>1週間続けても改善しない場合は、プロトレーナーとパーソナルストレッチで更なる改善を</p>
+                <button class="cta-button secondary" onclick="showSupport()">パーソナルストレッチについて</button>
             </div>
         </div>
     `;
@@ -211,30 +211,30 @@ function showSupport() {
     content.innerHTML = `
         <div class="support-container">
             <div class="support-header">
-                <h4>🏥 プロサポートについて</h4>
-                <p>ストレッチ専門店の専門家がいつでもサポートします</p>
+                <h4>🧘‍♀️ パーソナルストレッチについて</h4>
+                <p>プロトレーナーがあなたに最適なストレッチをマンツーマンで提供します</p>
             </div>
             
             <div class="support-options">
                 <div class="support-card">
-                    <div class="support-icon">💬</div>
-                    <h6>チャット相談</h6>
-                    <p>簡単な質問や不安をすぐに解決</p>
-                    <p class="support-price">完全無料</p>
+                    <div class="support-icon">📅</div>
+                    <h6>オンライン予約</h6>
+                    <p>24時間いつでも簡単予約</p>
+                    <p class="support-price">予約手数料無料</p>
                 </div>
                 
                 <div class="support-card">
-                    <div class="support-icon">📹</div>
-                    <h6>オンライン相談</h6>
-                    <p>15分間の専門カウンセリング</p>
-                    <p class="support-price">完全無料</p>
+                    <div class="support-icon">🧘‍♀️</div>
+                    <h6>パーソナルストレッチ60分</h6>
+                    <p>プロトレーナーがマンツーマンで施術</p>
+                    <p class="support-price">いまなら3300円！</p>
                 </div>
                 
                 <div class="support-card">
                     <div class="support-icon">🏢</div>
-                    <h6>来店サポート</h6>
-                    <p>全国240店舗での本格施術</p>
-                    <p class="support-price">初回限定特別価格</p>
+                    <h6>全国240店舗</h6>
+                    <p>お近くの店舗で本格ストレッチ</p>
+                    <p class="support-price">アクセス良好</p>
                 </div>
             </div>
             
@@ -249,8 +249,8 @@ function showSupport() {
             </div>
             
             <button class="cta-button primary" onclick="contactPro()">
-                <span class="cta-icon">📞</span>
-                無料相談を予約する
+                <span class="cta-icon">📅</span>
+                パーソナルストレッチを予約する
             </button>
             
             <button class="cta-button secondary" onclick="closeDiagnosis()">
